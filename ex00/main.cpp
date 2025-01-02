@@ -6,7 +6,7 @@
 /*   By: kecheong <kecheong@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 21:14:42 by kecheong          #+#    #+#             */
-/*   Updated: 2025/01/03 04:26:06 by kecheong         ###   ########.fr       */
+/*   Updated: 2025/01/03 04:42:09 by kecheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,12 +161,37 @@ void	test_decrement_grade()
 	println("--------------------");
 }
 
+void	f10() { throw Bureaucrat::GradeException(-42U, "high"); }
+void	f9() { f10(); }
+void	f8() { f9(); }
+void	f7() { f8(); }
+void	f6() { f7(); }
+void	f5() { f6(); }
+void	f4() { f5(); }
+void	f3() { f4(); }
+void	f2() { f3(); }
+void	f1() { f2(); }
+void	f0()
+{
+	try
+	{ 
+		f1();
+	}
+	catch (Bureaucrat::GradeException& e)
+	{
+		println(e.what());
+	}
+}
+
 int	main()
 {
-	test_orthodox_canonical_form();
+	/*f0();*/
+
+	/*test_orthodox_canonical_form();*/
 	/*test_grade_too_low();*/
 	/*test_grade_too_high();*/
 	/*test_negative_grade();*/
 	/*test_increment_grade();*/
 	/*test_decrement_grade();*/
+
 }
