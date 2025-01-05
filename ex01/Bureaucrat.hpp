@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kecheong <kecheong@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/05 18:23:06 by kecheong          #+#    #+#             */
-/*   Updated: 2025/01/05 18:55:21 by kecheong         ###   ########.fr       */
+/*   Created: 2025/01/05 18:22:56 by kecheong          #+#    #+#             */
+/*   Updated: 2025/01/05 19:41:06 by kecheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ public:
 	const unsigned int&	getGrade() const;
 	void				incrementGrade();
 	void				decrementGrade();
+	void				signForm(class Form&);
 
 	class	GradeException: public std::exception
 	{

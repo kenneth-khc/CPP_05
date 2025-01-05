@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kecheong <kecheong@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/05 18:23:11 by kecheong          #+#    #+#             */
-/*   Updated: 2025/01/05 18:23:30 by kecheong         ###   ########.fr       */
+/*   Created: 2025/01/05 19:41:04 by kecheong          #+#    #+#             */
+/*   Updated: 2025/01/05 19:41:05 by kecheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <string>
 #include <sstream>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 namespace
 {
@@ -140,4 +141,18 @@ std::ostream&	operator<<(std::ostream& os, const Bureaucrat& B)
 {
 	std::cout << B.getName() << ", bureaucrat grade " << B.getGrade();
 	return os;
+}
+
+void	Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << name << " signed " << form.getName() << '\n';
+	}
+	catch (Form::GradeException& e)
+	{
+		std::cout << name << " couldn't sign " << form.getName()
+				  << " because " << e.what() << '\n';
+	}
 }
