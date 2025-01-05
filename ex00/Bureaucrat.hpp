@@ -43,8 +43,8 @@ public:
 	};
 
 private:
-	std::string		name;
-	unsigned int	grade;
+	const std::string	name;
+	unsigned int		grade;
 };
 
 std::ostream&	operator<<(std::ostream&, const Bureaucrat&);

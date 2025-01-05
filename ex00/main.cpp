@@ -15,13 +15,13 @@
 #include "Bureaucrat.hpp"
 
 template<typename T>
-void	println(const T t)
+void	println(const T& t)
 {
 	std::cout << t << '\n';
 }
 
 template<typename T>
-std::string	to_string(const T t)
+std::string	to_string(const T& t)
 {
 	std::stringstream	ss;
 	ss << t;
@@ -50,8 +50,8 @@ void	test_orthodox_canonical_form()
 		Bureaucrat	b("Bobby", 99);
 		Bureaucrat	bb(b);
 
-		println(b.getName() + " = " + bb.getName());
-		println(to_string(b.getGrade()) + " = " + to_string(bb.getGrade()));
+		println(b.getName() + " == " + bb.getName());
+		println(to_string(b.getGrade()) + " == " + to_string(bb.getGrade()));
 	}
 	println("--------------------");
 	println("Copy assignment operator");
@@ -64,7 +64,7 @@ void	test_orthodox_canonical_form()
 				to_string(b.getGrade()));
 		not_bob = b;
 		println("Assigning... ");
-		println(not_bob.getName() + " == " + b.getName());
+		println(not_bob.getName() + " != " + b.getName());
 		println(to_string(not_bob.getGrade()) + " == " +
 				to_string(b.getGrade()));
 	}
@@ -185,13 +185,13 @@ void	f0()
 
 int	main()
 {
-	/*f0();*/
+	//f0();
 
-	/*test_orthodox_canonical_form();*/
-	/*test_grade_too_low();*/
-	/*test_grade_too_high();*/
-	/*test_negative_grade();*/
-	/*test_increment_grade();*/
-	/*test_decrement_grade();*/
+	test_orthodox_canonical_form();
+	//test_grade_too_low();
+	//test_grade_too_high();
+	//test_negative_grade();
+	//test_increment_grade();
+	//test_decrement_grade();
 
 }
