@@ -6,7 +6,7 @@
 /*   By: kecheong <kecheong@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 18:22:56 by kecheong          #+#    #+#             */
-/*   Updated: 2025/01/05 21:50:31 by kecheong         ###   ########.fr       */
+/*   Updated: 2025/01/06 04:43:45 by kecheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	Bureaucrat
 {
 public:
 	Bureaucrat(); // default constructor
-	Bureaucrat(const std::string&, unsigned int);
+	Bureaucrat(const std::string&, unsigned int); // constructor
 	Bureaucrat(const Bureaucrat&); // copy constructor
 	Bureaucrat& operator=(const Bureaucrat&); // copy assignment operator
 	~Bureaucrat(); // destructor
@@ -30,7 +30,8 @@ public:
 	const unsigned int&	getGrade() const;
 	void				incrementGrade();
 	void				decrementGrade();
-	void				signForm(class Form&);
+	void				signForm(class AForm&);
+	void				executeForm(const AForm&);
 
 	class	GradeException: public std::exception
 	{

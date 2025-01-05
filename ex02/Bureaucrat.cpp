@@ -6,7 +6,7 @@
 /*   By: kecheong <kecheong@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 19:41:04 by kecheong          #+#    #+#             */
-/*   Updated: 2025/01/05 21:46:15 by kecheong         ###   ########.fr       */
+/*   Updated: 2025/01/06 04:44:23 by kecheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <string>
 #include <sstream>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 namespace
 {
@@ -61,6 +61,8 @@ grade(other.grade)
 /* Copy assignment operator */
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other)
 {
+	std::cout << GREEN << "Bureaucrat's copy assignment operator called"
+			  << C_RESET << '\n';
 	if (this != &other)
 	{
 		//this->name = other.name; // can't assign to a const
@@ -143,16 +145,30 @@ std::ostream&	operator<<(std::ostream& os, const Bureaucrat& B)
 	return os;
 }
 
-void	Bureaucrat::signForm(Form& form)
+void	Bureaucrat::signForm(AForm& form)
 {
 	try
 	{
 		form.beSigned(*this);
 		std::cout << name << " signed " << form.getName() << '\n';
 	}
-	catch (Form::GradeException& e)
+	catch (AForm::FormException& e)
 	{
 		std::cout << name << " couldn't sign " << form.getName()
+				  << " because " << e.what() << '\n';
+	}
+}
+
+void	Bureaucrat::executeForm(const AForm& form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << name << " executed " << form.getName() << '\n';
+	}
+	catch (AForm::FormException& e)
+	{
+		std::cout << name << " couldn't execute " << form.getName()
 				  << " because " << e.what() << '\n';
 	}
 }
