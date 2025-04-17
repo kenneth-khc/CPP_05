@@ -108,12 +108,12 @@ const std::string&	AForm::getTarget() const
 
 std::ostream&	operator<<(std::ostream& os, const AForm& form)
 {
-	std::cout << "Form at " << &form << " | "
-			  << "name: " << form.getName() << " | "
-			  << "target: " << form.getTarget() << " | "
-			  << "isSigned: " << (form.getSignStatus() ? "true" : "false") << " | "
-			  << "signGrade: " << form.getGradeRequiredToSign() << " | "
-			  << "execGrade: " << form.getGradeRequiredToExecute() << " | ";
+	os << "Form at " << &form << " | "
+	   << "name: " << form.getName() << " | "
+	   << "target: " << form.getTarget() << " | "
+	   << "isSigned: " << (form.getSignStatus() ? "true" : "false") << " | "
+	   << "signGrade: " << form.getGradeRequiredToSign() << " | "
+	   << "execGrade: " << form.getGradeRequiredToExecute() << " | ";
 	return os;
 }
 

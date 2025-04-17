@@ -141,7 +141,7 @@ GradeException(input_grade, "low") { }
 /* Overload << to print Bureaucrat's status */
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& B)
 {
-	std::cout << B.getName() << ", bureaucrat grade " << B.getGrade();
+	os << B.getName() << ", bureaucrat grade " << B.getGrade();
 	return os;
 }
 

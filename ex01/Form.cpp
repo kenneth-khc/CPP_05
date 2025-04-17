@@ -101,11 +101,11 @@ unsigned int	Form::getGradeRequiredToExecute() const
 
 std::ostream&	operator<<(std::ostream& os, const Form& form)
 {
-	std::cout << "Form at " << &form << " | "
-			  << "name: " << form.getName() << " | "
-			  << "isSigned: " << (form.getSignStatus() ? "true" : "false") << " | "
-			  << "signGrade: " << form.getGradeRequiredToSign() << " | "
-			  << "execGrade: " << form.getGradeRequiredToExecute() << " | ";
+	os << "Form at " << &form << " | "
+	   << "name: " << form.getName() << " | "
+	   << "isSigned: " << (form.getSignStatus() ? "true" : "false") << " | "
+	   << "signGrade: " << form.getGradeRequiredToSign() << " | "
+	   << "execGrade: " << form.getGradeRequiredToExecute() << " | ";
 	return os;
 }
 
