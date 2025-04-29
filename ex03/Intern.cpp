@@ -73,5 +73,5 @@ AForm*	Intern::makeForm(const std::string& formName,
 	}
 	std::cout << "Cannot find form of " << formName
 			  << " for target " << targetName << '\n';
-	return 0;
+	return NULL;
 }
